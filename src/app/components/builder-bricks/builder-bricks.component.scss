@@ -1,0 +1,44 @@
+.builder-bricks {
+  display: flex;
+  flex-wrap: wrap;
+
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    font-size: 2rem;
+    margin: .5rem;
+    border-radius: .5rem;
+    background: red;
+    width: 13vw;
+    height: 9vh;
+    list-style-type: none;
+  }
+
+  &__item:hover .builder-bricks__delete {
+    display: block;
+  }
+
+  &__delete {
+    display: none;
+    transition: 1s;
+    padding: .7rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    background: inherit
+  }
+
+  &__delete:hover {
+    color: darkblue;
+    border-color: darkblue;
+    cursor: pointer;
+    transition: 1s;
+    transform: scale(1.2);
+  }
+
+}
