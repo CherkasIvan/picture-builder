@@ -2,17 +2,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
 }
 
 
 .builder-panel {
+  position: relative;
   width: 80%;
   height: 80%;
-  
+
   border-radius: 1rem;
   overflow: hidden;
-  background: rgba(#000000, 0.7);
+  background: rgba(#2912d8, .3);
+
+  &__item {
+    position: absolute;
+    cursor: move;
+    left: 90px;
+  }
 }

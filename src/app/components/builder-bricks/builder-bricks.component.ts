@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BuilderDataService } from 'src/app/services/builder-data.service';
+
+import { BuilderDataService } from '../../services/builder-data.service';
 
 @Component({
   selector: 'app-builder-bricks',
@@ -8,7 +9,12 @@ import { BuilderDataService } from 'src/app/services/builder-data.service';
 })
 export class BuilderBricksComponent implements OnInit {
   public bricks: number[] = this.builerdService.bricks;
+
   public deleteElement(addedItem: any): void {
+    this.builerdService.deleteOneElement(addedItem);
+  }
+
+  public selectColor(addedItem: any): void {
     this.builerdService.deleteOneElement(addedItem);
   }
 
