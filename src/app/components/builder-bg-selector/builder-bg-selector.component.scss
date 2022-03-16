@@ -1,0 +1,36 @@
+.background-select-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+
+  .background-select-title {
+    margin-top: 0.5rem;
+  }
+
+  .background-select-group {
+    display: flex;
+    flex-direction: row;
+
+    .background-select-option {
+      height: 2.2rem;
+      width: 2.2rem;
+      border-radius: 1.125rem;
+      margin-right: 0.3rem;
+      background-blend-mode: screen;
+      box-shadow: none;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        box-shadow: none;
+      }
+
+      span {
+        text-align: center;
+        line-height: 2.2rem;
+        width: 2.2rem;
+        font-weight: 900;
+      }
+    }
+  }
+}

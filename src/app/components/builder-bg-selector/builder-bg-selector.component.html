@@ -1,0 +1,19 @@
+<div class="background-select-wrapper">
+  <div class="background-select-group">
+    <div *ngFor="let item of backgrounds">
+      <div *ngIf="!item.isDark" class="background-select-option" [style.background]="item.background"
+        (click)="changeBackground(item)">
+        <span *ngIf="item.background === activeBackground.background">done</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="background-select-group">
+    <div *ngFor="let item of backgrounds">
+      <div *ngIf="item.isDark" class="background-select-option" [style.background]="item.background"
+        (click)="changeBackground(item)">
+        <span *ngIf="item.background === activeBackground.background">done</span>
+      </div>
+    </div>
+  </div>
+</div>
