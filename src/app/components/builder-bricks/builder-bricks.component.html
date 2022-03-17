@@ -1,5 +1,9 @@
 <ul class="builder-bricks">
-  <li class="builder-bricks__item" *ngFor="let brick of bricks; let i=index"><button class="builder-bricks__delete"
-      (click)="deleteElement(brick)">&times;</button><button class="builder-bricks__select-color"
-      (click)="selectColor(brick)">&raquo;</button></li>
+  <li class="builder-bricks__item" *ngFor="let brick of bricks; let i = index">
+    <button class="builder-bricks__delete" (click)="deleteElement(brick)">
+      &times;</button
+    ><button class="builder-bricks__select-color" (click)="selectColor(brick)">
+      &raquo;
+    </button>
+  </li>
 </ul>
