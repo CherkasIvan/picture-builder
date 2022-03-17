@@ -20,6 +20,8 @@
     "@angular/router": "~13.2.0",
     "@ngrx/store": "^13.0.2",
     "firebase": "^9.6.8",
+    "latest": "^0.2.0",
+    "ngx-infinite-scroll": "^10.0.1",
     "normalize.css": "^8.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

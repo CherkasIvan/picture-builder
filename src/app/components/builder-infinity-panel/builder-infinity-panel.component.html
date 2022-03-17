@@ -1,0 +1,18 @@
+<div class="container">
+  <div
+    class="search-results-container"
+    [scrollWindow]="false"
+    infinite-scroll
+    (scrolled)="onScrollDown($event)"
+    (scrolledUp)="onScrollUp($event)"
+  >
+    <div class="list-group">
+      <a
+        class="list-group-item list-group-item-action"
+        *ngFor="let i of listArray"
+      >
+        <p class="mb-1">{{ i }} Item added on {{ direction }}</p>
+      </a>
+    </div>
+  </div>
+</div>

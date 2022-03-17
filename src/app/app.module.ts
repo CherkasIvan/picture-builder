@@ -14,6 +14,8 @@ import { BuilderBricksModule } from './components/builder-bricks/builder-bricks.
 import { BuilderManageButtonsModule } from './components/builder-manage-buttons/builder-manage-buttons.module';
 import { BuilderNavModule } from './components/builder-nav/builder-nav.module';
 import { BuilderBgSelectorModule } from './components/builder-bg-selector/builder-bg-selector.module';
+import { BuilderInfinityPanelModule } from './components/builder-infinity-panel/builder-infinity-panel.module';
+
 
 import { AppComponent } from './app.component';
 
@@ -29,6 +31,7 @@ import { AppComponent } from './app.component';
     BuilderManageButtonsModule,
     BuilderNavModule,
     BuilderBgSelectorModule,
+    BuilderInfinityPanelModule,
     StoreModule.forRoot({}, {}),
   ],
   providers: [],
