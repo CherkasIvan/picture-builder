@@ -1,6 +1,97 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { fromEvent, combineLatest } from 'rxjs';
 import { switchMap, takeUntil, map, tap, last } from 'rxjs/operators';
+
+// const mouseMove$ = fromEvent(document, 'mousemove');
+// const mouseUp$ = fromEvent(document, 'mouseup');
+
+// const draggableElements = document.getElementsByClassName(
+//   'builder-panel__item'
+// );
+// Array.from(draggableElements).forEach(createDraggableElement);
+
+// function createDraggableElement(element: any) {
+//   console.log(draggableElements)
+//   const mouseDown$ = fromEvent(element, 'mousedown');
+
+//   const dragStart$ = mouseDown$;
+//   const dragMove$ = dragStart$.pipe(
+//     switchMap((start: any) =>
+//       mouseMove$.pipe(
+//         map((moveEvent: any) => ({
+//           originalEvent: moveEvent,
+//           deltaX: moveEvent.pageX - start.pageX,
+//           deltaY: moveEvent.pageY - start.pageY,
+//           startOffsetX: start.offsetX,
+//           startOffsetY: start.offsetY,
+//         })),
+//         takeUntil(mouseUp$)
+//       )
+//     )
+//   );
+//   const dragEnd$ = dragStart$.pipe(
+//     switchMap((start: any) =>
+//       mouseMove$.pipe(
+//         map((moveEvent: any) => ({
+//           originalEvent: moveEvent,
+//           deltaX: moveEvent.pageX - start.pageX,
+//           deltaY: moveEvent.pageY - start.pageY,
+//           startOffsetX: start.offsetX,
+//           startOffsetY: start.offsetY,
+//         })),
+//         takeUntil(mouseUp$),
+//         last()
+//       )
+//     )
+//   );
+
+//   combineLatest([
+//     dragStart$.pipe(
+//       tap((event) => {
+//         element.dispatchEvent(
+//           new CustomEvent('mydragstart', { detail: event })
+//         );
+//       })
+//     ),
+//     dragMove$.pipe(
+//       tap((event) => {
+//         element.dispatchEvent(new CustomEvent('mydragmove', { detail: event }));
+//       })
+//     ),
+//     dragEnd$.pipe(
+//       tap((event) => {
+//         element.dispatchEvent(new CustomEvent('mydragend', { detail: event }));
+//       })
+//     ),
+//   ]).subscribe();
+
+//   dragMove$.subscribe((move: any) => {
+//     const offsetX = move.originalEvent.x - move.startOffsetX;
+//     const offsetY = move.originalEvent.y - move.startOffsetY;
+//     element.style.left = offsetX + 'px';
+//     element.style.top = offsetY + 'px';
+//   });
+// }
+
+// Array.from(draggableElements).forEach((element, i) => {
+//   element.addEventListener('mydragstart', () =>
+//     console.log(`mydragstart on element #${i}`)
+//   );
+
+//   element.addEventListener('mydragmove', (event: any) =>
+//     console.log(
+//       `mydragmove on element #${i}`,
+//       `delta: (${event.detail.deltaX}, ${event.detail.deltaY})`
+//     )
+//   );
+
+//   element.addEventListener('mydragend', (event: any) =>
+//     console.log(
+//       `mydragend on element #${i}`,
+//       `delta: (${event.detail.deltaX}, ${event.detail.deltaY})`
+//     )
+//   );
+// });
 
 @Component({
   selector: 'app-builder-panel',
@@ -8,40 +99,17 @@ import { switchMap, takeUntil, map, tap, last } from 'rxjs/operators';
   styleUrls: ['./builder-panel.component.scss'],
 })
 export class BuilderPanelComponent implements OnInit {
+  public mouseMove$ = fromEvent(document, 'mousemove');
+  public mouseUp$ = fromEvent(document, 'mouseup');
+
   public draggableElements = document.getElementsByClassName(
     'builder-panel__item'
   );
-  public mouseDown$ = fromEvent(this.draggableElements, 'mousedown');
-  public mouseMove$ = fromEvent(this.draggableElements, 'mousemove');
-  public mouseUp$ = fromEvent(this.draggableElements, 'mouseup');
-  public dragStart$ = this.mouseDown$;
 
-  public dragMove$ = this.dragStart$.pipe(
-    switchMap((start: any) =>
-      this.mouseMove$.pipe(
-        // we transform the mouseDown and mouseMove event to get the necessary information
-        map((moveEvent: any) => ({
-          originalEvent: moveEvent,
-          deltaX: moveEvent.pageX - start.pageX,
-          deltaY: moveEvent.pageY - start.pageY,
-          startOffsetX: start.offsetX,
-          startOffsetY: start.offsetY,
-        })),
-        takeUntil(this.mouseUp$)
-      )
-    )
-  );
-
-  // this.dragMove$.subscribe((move:any) => {
-  //   const offsetX = move.originalEvent.x - move.startOffsetX;
-  //   const offsetY = move.originalEvent.y - move.startOffsetY;
-  //   this.draggableElement.style.left = offsetX + 'px';
-  //   this.draggableElement.style.top = offsetY + 'px';
-  // });
-
-
-
-  constructor() {}
+  constructor() {
+    // let el: any;
+    // let c: any = Array.from(this.draggableElements).forEach(el);
+  }
 
   ngOnInit(): void {}
 }

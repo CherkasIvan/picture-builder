@@ -1,4 +1,24 @@
 <ul class="builder-bricks">
-  <li class="builder-bricks__item" *ngFor="let brick of bricks; let i=index"><button
-      class="builder-bricks__delete" (click)="deleteElement(brick)">&times;</button></li>
+  <li
+    ngx-colors-trigger
+    class="builder-bricks__item"
+    *ngFor="let brick of bricks; let i = index"
+    [style.background]="color"
+    [(ngModel)]="color"
+    name="color"
+  >
+    <button class="builder-bricks__delete" (click)="deleteElement(brick)">
+      &times;
+    </button>
+
+    <div class="builder-bricks__select-color">
+      <div class="form-group">
+        <ngx-colors
+          ngx-colors-trigger
+          [(ngModel)]="color"
+          name="color"
+        ></ngx-colors>
+      </div>
+    </div>
+  </li>
 </ul>

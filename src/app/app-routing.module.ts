@@ -1,11 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BlogPageComponent } from './pages/blog-page/blog-page.component';
-import { MainPageComponent } from './pages/main-page/main-page.component';
 
 const routes: Routes = [
-  { path: '', component: MainPageComponent },
-  { path: 'blog', component: BlogPageComponent },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./pages/main-page/main-page.module').then(
+        (m) => m.MainPageModule
+      ),
+  },
+  {
+    path: 'main-page',
+    loadChildren: () =>
+      import('./pages/main-page/main-page.module').then(
+        (m) => m.MainPageModule
+      ),
+  },
+  {
+    path: 'blog-page',
+    loadChildren: () =>
+      import('./pages/blog-page/blog-page.module').then(
+        (m) => m.BlogPageModule
+      ),
+  },
 ];
 
 @NgModule({
