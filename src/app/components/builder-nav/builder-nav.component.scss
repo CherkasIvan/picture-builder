@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  font-style: italic;
+  list-style-type: none;
+}
+
+.sidenav_menu {
+  margin: 0;
+  width: 100vw;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidenav_menu li a {
+  float: left;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  padding: .9rem 1rem;
+  text-decoration: none;
+  transition: 500ms;
+}
+
+.sidenav_menu a:hover {
+  cursor: pointer;
+  transition: 500ms;
+  color: darkblue;
+  background-color: red;
+}
