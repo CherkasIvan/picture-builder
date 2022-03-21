@@ -30,7 +30,7 @@
     font-weight: bold;
     color: #ffffff;
     border: none;
-    background: inherit
+    background: inherit;
   }
 
   &__delete:hover,
@@ -38,6 +38,5 @@
     color: darkblue;
     cursor: pointer;
     transition: 1s;
-    transform: scale(1.2);
   }
 }
