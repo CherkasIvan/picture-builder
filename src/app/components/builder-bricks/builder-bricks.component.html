@@ -2,8 +2,7 @@
   <li
     ngx-colors-trigger
     class="builder-bricks__item"
-    *ngFor="let brick of bricks; let i = index"
-    [style.background]="color"
+    *ngFor="let brick of bricks; let i = index; trackBy: identify"
     [(ngModel)]="color"
     name="color"
   >
@@ -18,6 +17,9 @@
           [(ngModel)]="color"
           name="color"
         ></ngx-colors>
+        <!-- <div>
+          <ngx-colors ngx-colors-trigger [(ngModel)]="color"></ngx-colors>
+        </div> -->
       </div>
     </div>
   </li>

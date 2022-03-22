@@ -6,15 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./builder-infinity-panel.component.scss'],
 })
 export class BuilderInfinityPanelComponent implements OnInit {
-  listArray: string[] = [];
-  sum = 20;
-  direction = '';
+  public listArray: string[] = [];
+  public sum = 20;
+  public direction = '';
 
   constructor() {
     this.appendItems();
   }
 
-  onScrollDown(ev: any) {
+  public onScrollDown(ev: any) {
     console.log('scrolled down!!', ev);
 
     this.sum += 20;
@@ -23,7 +23,7 @@ export class BuilderInfinityPanelComponent implements OnInit {
     this.direction = 'scroll down';
   }
 
-  onScrollUp(ev: any) {
+  public onScrollUp(ev: any) {
     console.log('scrolled up!', ev);
     this.sum += 20;
     this.prependItems();
@@ -31,15 +31,15 @@ export class BuilderInfinityPanelComponent implements OnInit {
     this.direction = 'scroll up';
   }
 
-  appendItems() {
-    this.addItems('push');
-  }
-
-  prependItems() {
+  public prependItems() {
     this.addItems('unshift');
   }
 
-  addItems(_method: string) {
+  public appendItems() {
+    this.addItems('push');
+  }
+
+  public addItems(_method: string) {
     for (let i = 0; i < this.sum; ++i) {
       if (_method === 'push') {
         this.listArray.push([i].join(''));
@@ -49,5 +49,7 @@ export class BuilderInfinityPanelComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.appendItems();
+  }
 }
