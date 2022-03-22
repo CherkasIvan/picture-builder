@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class BuilderDataService {
   public bricks: number[] = [];
+  public colors: number[] = [];
 
   public deleteOneElement(addedItem: any): void {
     let index = this.bricks.indexOf(addedItem);

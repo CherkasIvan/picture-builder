@@ -8,22 +8,26 @@ import { Background } from '../../interface/background';
   templateUrl: './builder-bg-selector.component.html',
   styleUrls: ['./builder-bg-selector.component.scss'],
 })
-export class BuilderBgSelectorComponent {
-  public backgrounds: Array<Background>;
-  public activeBackground: Background;
+export class BuilderBgSelectorComponent implements OnInit {
+  public backgrounds!: Array<Background>;
+  public activeBackground!: Background;
 
-  constructor(private celectBgService: BuilderBgSelectService) {
-    this.backgrounds = this.celectBgService.getBackgrounds();
+ public changeBackground(background: Background): void {
+    this.activeBackground = background;
+    localStorage.setItem('background', JSON.stringify(this.activeBackground));
+    document.body.style.background = background.background;
+    this.selectBgService.changeColorTheme(background);
+  }
+
+  constructor(private selectBgService: BuilderBgSelectService) {}
+
+  ngOnInit(): void {
+    this.backgrounds = this.selectBgService.getBackgrounds();
     this.activeBackground =
       JSON.parse(localStorage.getItem('background') as string) ||
       this.backgrounds[0];
     this.changeBackground(this.activeBackground);
   }
 
-  changeBackground(background: Background): void {
-    this.activeBackground = background;
-    localStorage.setItem('background', JSON.stringify(this.activeBackground));
-    document.body.style.background = background.background;
-    this.celectBgService.changeColorTheme(background);
-  }
+
 }

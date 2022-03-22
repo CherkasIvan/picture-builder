@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-main-page',
@@ -6,8 +6,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent {
   constructor() {}
-
-  ngOnInit(): void {}
 }
